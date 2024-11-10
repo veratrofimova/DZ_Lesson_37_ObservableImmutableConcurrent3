@@ -5,31 +5,22 @@ namespace TheHouseThatJackBuilt
     public class Part3
     {
         static string text = "А это веселая птица-синица,\r\nКоторая часто ворует пшеницу,\r\nКоторая в темном чулане хранится\r\nВ доме,\r\nКоторый построил Джек.";
-        List<string> list = text.Split("\r\n").ToList();
+        List<string> list = new List<string>();
 
-        private ImmutableList<string>.Builder _newPart;
-        public ImmutableList<string>.Builder NewPart => _newPart;
+        public ImmutableList<string> Poem { get; private set; }
 
-        private ImmutableList<string>.Builder _poem;
-        public ImmutableList<string>.Builder Poem => _poem;
-
-        public Part3()
+        public Part3(ImmutableList<string> poem)
         {
-            _newPart = ImmutableList.CreateBuilder<string>();
-            _newPart.Add("");
-
-            foreach (var row in list)
-                _newPart.Add(row);
-
-            _newPart.ToImmutable();
+            Poem = poem;
         }
 
-        public void AddPart(ImmutableList<string>.Builder prevpart)
+        public ImmutableList<string> AddPart(ImmutableList<string> prevpart)
         {
-            _poem = ImmutableList.CreateBuilder<string>();
-            _poem.AddRange(prevpart);
-            _poem.AddRange(NewPart);
-            _poem.ToImmutable();
+            list.Add("");
+            list.AddRange(text.Split("\r\n").ToList());
+
+            Poem = prevpart.Concat(list).ToImmutableList();
+            return Poem;
         }
     }
 }
