@@ -7,7 +7,7 @@ namespace TheHouseThatJackBuilt
         static string text = "А это пшеница,\r\nКоторая в темном чулане хранится\r\nВ доме,\r\nКоторый построил Джек.";
         List<string> list = new List<string>();
 
-        public ImmutableList<string> Poem { get; private set; }
+        public ImmutableList<string> Poem { get; set; }
 
         public Part2(ImmutableList<string> poem)
         {

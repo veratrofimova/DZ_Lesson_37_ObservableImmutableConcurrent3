@@ -7,7 +7,7 @@ namespace TheHouseThatJackBuilt
         static string text = "Вот два петуха,\r\nКоторые будят того пастуха,\r\nКоторый бранится с коровницей строгою,\r\nКоторая доит корову безрогую,\r\nЛягнувшую старого пса без хвоста,\r\nКоторый за шиворот треплет кота,\r\nКоторый пугает и ловит синицу,\r\nКоторая часто ворует пшеницу,\r\nКоторая в темном чулане хранится\r\nВ доме,\r\nКоторый построил Джек.";
         List<string> list = new List<string>();
 
-        public ImmutableList<string> Poem { get; private set; }
+        public ImmutableList<string> Poem { get; set; }
         public Part9(ImmutableList<string> poem)
         {
             Poem = poem;

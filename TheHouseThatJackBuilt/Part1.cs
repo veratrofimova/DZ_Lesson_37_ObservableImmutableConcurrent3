@@ -7,7 +7,7 @@ namespace TheHouseThatJackBuilt
         static string text = "Вот дом,\r\nКоторый построил Джек.";
         List<string> list = text.Split("\r\n").ToList();
 
-        public ImmutableList<string> Poem { get; private set; }
+        public ImmutableList<string> Poem { get; set; }
 
         public ImmutableList<string> AddPart()
         {
